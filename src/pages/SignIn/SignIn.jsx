@@ -18,9 +18,11 @@ const SignIn = () => {
         signIn(email, password)
             .then(result => {
                 console.log(result.user);
+                form.reset();
             })
             .catch(error => {
                 console.log(error);
+                form.reset();
             })
     }
     return (
