@@ -29,6 +29,7 @@ const Navbar = () => {
                 </div>
                 <div className="navbar-end">
                     <NavLink to="/register" className="btn btn-primary">Register</NavLink>
+                    <NavLink to="/signIn" className="btn btn-primary">Sign in</NavLink>
                 </div>
             </div>
         </div>
