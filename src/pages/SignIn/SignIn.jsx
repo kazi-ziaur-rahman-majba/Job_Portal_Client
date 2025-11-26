@@ -1,11 +1,12 @@
-import React, { use } from 'react';
+import React, { useContext } from 'react';
 import registerLottie from '../../assets/register.json';
 import Lottie from 'lottie-react';
 import { AuthContext } from '../../contexts/AuthContext/AuthContext';
 import { Link } from 'react-router-dom';
+import SocialLogin from '../../components/Auth/SocialLogin';
 
 const SignIn = () => {
-    const { signIn } = use(AuthContext);
+    const { signIn } = useContext(AuthContext);
 
     const handleSignIn = (e) => {
         e.preventDefault();
@@ -45,10 +46,11 @@ const SignIn = () => {
                                 <button type="submit" className="btn btn-neutral mt-4">Login</button>
                                 <div className="mt-2">
                                     <span>Already have an account? </span>
-                                    <Link className="link link-hover" href="/register">Register here</Link>
+                                    <Link className="link link-hover" to="/register">Register here</Link>
                                 </div>
                             </fieldset>
                         </form>
+                        <SocialLogin />
                     </div>
                 </div>
             </div>
