@@ -1,11 +1,11 @@
 import Lottie from 'lottie-react';
-import React, { use } from 'react';
+import React, { useContext } from 'react';
 import registerLottie from '../../assets/register.json';
 import { AuthContext } from '../../contexts/AuthContext/AuthContext';
 import { Link } from 'react-router-dom';
 
 const Register = () => {
-    const { createUser } = use(AuthContext);
+    const { createUser } = useContext(AuthContext);
 
     const handleRegister = (e) => {
         e.preventDefault();
@@ -50,7 +50,7 @@ const Register = () => {
                                 <button className="btn btn-neutral mt-4">Register</button>
                                 <div className="mt-2">
                                     <span>Already have an account? </span>
-                                    <Link className="link link-hover" href="/signIn">Login here</Link>
+                                    <Link className="link link-hover" to="/signIn">Login here</Link>
                                 </div>
                             </fieldset>
                         </form>
