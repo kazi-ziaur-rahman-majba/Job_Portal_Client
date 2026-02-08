@@ -81,9 +81,12 @@ export const useAPI = () => {
     const fetchData = async ({ apiUrl }) => {
         try {
             const response = await getMutation.mutateAsync({ url: apiUrl });
-            return response.data;
+            // Prefer `response.data` when API returns a wrapper, otherwise return raw response
+            return response?.data ?? response;
         } catch (e) {
-            showErrorToast(e?.response?.data?.message || e?.data?.message || e?.message);
+            const msg = e?.response?.data?.message || e?.data?.message || e?.message;
+            showErrorToast(msg);
+            return null;
         }
     };
 

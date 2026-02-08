@@ -8,12 +8,13 @@ const HotJobs = () => {
 
 	useEffect(() => {
 		const fetchHotJobsData = async () => {
-			const response = await fetchData({ apiUrl: `${apiConfig.site.hotJobsUrl}` });
-			setResponse(response);
+			const data = await fetchData({ apiUrl: `${apiConfig.site.hotJobsUrl}` });
+			setResponse(data ?? []);
+			console.log("Hot Jobs", data);
 		};
 		fetchHotJobsData();
 	}, []);
-    
+
     return (
         <div>
             <h1>{response.length}</h1>
