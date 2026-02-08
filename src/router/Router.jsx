@@ -4,6 +4,7 @@ import RootLayouts from '../layouts/RootLayouts';
 import Home from '../pages/Home/Home';
 import RegisterPage from '../pages/Register/Register';
 import SignIn from '../pages/SignIn/SignIn';
+import JobDetails from '../pages/job-details/JobDetails';
 
 const Router = createBrowserRouter([
     {
@@ -17,7 +18,11 @@ const Router = createBrowserRouter([
                 element: <Home />
             },
             {
-                path: '/register',
+                path: '/job/:_id',
+                element: <JobDetails />
+            },
+            {
+                path: '/register',    
                 element: <RegisterPage />
             },
             {
