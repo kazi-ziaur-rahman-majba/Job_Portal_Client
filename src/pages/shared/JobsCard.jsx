@@ -4,38 +4,41 @@ import { Link } from "react-router-dom";
 const JobsCard = ({job}) => {
     const { title, jobType, description, company, location, salaryRange, company_logo, requirements} = job || {};
     return (
-        <div className="card bg-base-100 shadow-sm p-4">
-            <div className="flex items-center gap-3">
+        <div className="card bg-white shadow-sm p-4 hover:shadow-lg transition-shadow duration-200 rounded-lg">
+            <div className="flex items-center gap-4">
                 <figure>
                     <img
-                    src={company_logo}
-                    alt=""
-                    height={60}
-                    width={60}
+                        src={company_logo}
+                        alt={company}
+                        className="w-14 h-14"
                     />
                 </figure>
-                <div className="">
-                    <h3 className="text-xl md:text-2xl lg:text-4xl">{company}</h3>
-                    <p className="text-base flex items-center gap-1"><FaMapMarkerAlt />{location}</p>
+                <div className="flex-1">
+                    <h3 className="text-lg font-semibold">{company}</h3>
+                    <p className="text-sm text-gray-500 flex items-center gap-1"><FaMapMarkerAlt />{location}</p>
+                </div>
+                <div className="text-right">
+                    <span className="badge badge-outline">{jobType}</span>
                 </div>
             </div>
-            <div className="card-body">
-                <div className="flex gap-2 items-center">
-                    <h2 className="card-title">{title}</h2>
-                    <div className="badge badge-secondary">NEW</div>
+            <div className="card-body p-0 mt-3">
+                <div className="flex gap-2 items-start justify-between">
+                    <h2 className="card-title text-lg md:text-xl">{title}</h2>
+                    <div className="badge badge-success text-sm">NEW</div>
                 </div>
-                <p className="font-bold">{salaryRange.min} - {salaryRange.max}BDT</p>
-                <p className="text-justify">
+                <p className="text-sm font-semibold text-green-600 mt-1">{salaryRange?.min} - {salaryRange?.max} BDT</p>
+                <p className="text-sm text-gray-700 mt-2 max-h-16 overflow-hidden text-justify">
                     {description}
                 </p>
-                <div className="card-actions ">
+                <div className="flex flex-wrap gap-2 mt-3">
                     {
-                        requirements?.map((skills, idx) => <div key={idx} className="badge badge-outline">{skills}</div>)
+                        requirements?.map((skills, idx) => (
+                            <span key={idx} className="badge badge-outline badge-sm">{skills}</span>
+                        ))
                     }
-                    <div className="badge badge-outline">Products</div>
                 </div>
-                <div className="card-actions justify-end mt-2">
-                    <Link to={`/job/${job._id}`} className="btn btn-primary">Apply Now</Link>
+                <div className="card-actions justify-end mt-4">
+                    <Link to={`/job/${job._id}`} className="btn btn-primary btn-sm">Apply Now</Link>
                 </div>
             </div>
         </div>
