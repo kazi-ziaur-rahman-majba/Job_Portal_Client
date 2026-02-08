@@ -1,4 +1,5 @@
 const JobDetails = () => {
+    
     return (
         <div>
             

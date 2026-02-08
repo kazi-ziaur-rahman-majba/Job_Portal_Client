@@ -3,7 +3,7 @@ import registerLottie from '../../assets/register.json';
 import Lottie from 'lottie-react';
 import { AuthContext } from '../../contexts/AuthContext/AuthContext';
 import { Link } from 'react-router-dom';
-import SocialLogin from '../../components/Auth/SocialLogin';
+import SocialLogin from '../../components/auth/SocialLogin';
 
 const SignIn = () => {
     const { signIn } = useContext(AuthContext);
