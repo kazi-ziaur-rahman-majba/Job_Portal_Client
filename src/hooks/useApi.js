@@ -85,6 +85,7 @@ export const useAPI = () => {
             return response?.data ?? response;
         } catch (e) {
             const msg = e?.response?.data?.message || e?.data?.message || e?.message;
+            console.error("Error in fetchData:", e); // Log the full error object
             showErrorToast(msg);
             return null;
         }

@@ -1,6 +1,6 @@
 {
     "site" : {
         "hotJobsUrl": "/jobs",
-        "jobDetailsUrl": "/job/:_id"
+        "jobDetailsUrl": "/jobs/:id"
     }
 }
