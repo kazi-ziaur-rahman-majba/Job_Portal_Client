@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
-import registerLottie from '../../assets/register.json';
-import Lottie from 'lottie-react';
+import { FaUserCircle } from 'react-icons/fa';
 import { AuthContext } from '../../contexts/AuthContext/AuthContext';
 import { Link } from 'react-router-dom';
 import SocialLogin from '../../components/auth/SocialLogin';
@@ -29,8 +28,8 @@ const SignIn = () => {
     return (
         <div className="hero bg-base-200 min-h-screen">
             <div className="hero-content flex-col lg:flex-row-reverse">
-                <div>
-                    <Lottie style={{ width: '400px', height: '400px', margin: 'auto' }} animationData={registerLottie} loop={true} />
+                <div className="text-center lg:text-left">
+                    <FaUserCircle className="text-9xl mx-auto" />
                 </div>
 
                 <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">

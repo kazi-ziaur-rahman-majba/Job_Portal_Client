@@ -137,7 +137,7 @@ const JobDetails = () => {
                         </div>
 
                         <div className="mt-8">
-                            <button className="w-full bg-blue-600 text-white py-3 rounded-md text-lg font-semibold hover:bg-blue-700 transition duration-200">
+                            <button className="btn btn-primary btn-sm">
                                 Apply Now
                             </button>
                         </div>

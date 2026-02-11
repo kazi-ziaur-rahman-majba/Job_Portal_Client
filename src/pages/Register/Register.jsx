@@ -1,6 +1,5 @@
-import Lottie from 'lottie-react';
 import React, { useContext } from 'react';
-import registerLottie from '../../assets/register.json';
+import { FaUserCircle } from 'react-icons/fa';
 import { AuthContext } from '../../contexts/AuthContext/AuthContext';
 import { Link } from 'react-router-dom';
 
@@ -31,8 +30,8 @@ const Register = () => {
     return (
         <div className="hero bg-base-200 min-h-screen">
             <div className="hero-content flex-col lg:flex-row-reverse">
-                <div>
-                    <Lottie style={{ width: '400px', height: '400px', margin: 'auto' }} animationData={registerLottie} loop={true} />
+                <div className="text-center lg:text-left">
+                    <FaUserCircle className="text-9xl mx-auto" />
                 </div>
 
                 <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
@@ -50,7 +49,7 @@ const Register = () => {
                                 <button className="btn btn-neutral mt-4">Register</button>
                                 <div className="mt-2">
                                     <span>Already have an account? </span>
-                                    <Link className="link link-hover" to="/signIn">Login here</Link>
+                                    <Link className="link link-hover cursor-pointer" to="/signIn">Login here</Link>
                                 </div>
                             </fieldset>
                         </form>

@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import RootLayouts from '../layouts/RootLayouts';
 import Home from '../pages/Home/Home';
 import RegisterPage from '../pages/Register/Register';
 import SignIn from '../pages/SignIn/SignIn';
-import JobDetails from '../pages/job-details/JobDetails';
+import JobDetailsSkeleton from '../components/skeleton/JobDetailsSkeleton';
+
+const LazyJobDetails = lazy(() => import('../pages/job-details/JobDetails'));
 
 const Router = createBrowserRouter([
     {
@@ -12,14 +14,16 @@ const Router = createBrowserRouter([
         element: <RootLayouts />,
         children: [
             {
-                // path: '/',
-                // element: <Home />
                 index: true,
                 element: <Home />
             },
             {
                 path: '/job/:id',
-                element: <JobDetails />
+                element: (
+                    <Suspense fallback={<JobDetailsSkeleton />}>
+                        <LazyJobDetails />
+                    </Suspense>
+                )
             },
             {
                 path: '/register',    
